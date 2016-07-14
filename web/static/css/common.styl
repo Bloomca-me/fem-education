@@ -1,0 +1,105 @@
+body
+  margin: 0
+  padding: 0
+  background-color: #f3f3f3
+
+*
+  font-family: -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif
+
+ul
+  list-style: none
+  margin: 0
+  padding: 0
+
+.container-with-footer
+  display: flex
+  flex-direction: column
+  min-height: 100vh
+
+.main-container
+  flex-grow: 1
+  padding-top: 25px
+
+.content-container
+  margin: 0 auto
+  max-width: 750px
+
+  @media screen and (max-width: 750px)
+    padding: 25px
+
+.header
+
+  .logo
+    height: 70px
+    background-color: #3a3a3a
+    display: flex
+    justify-content: center
+    align-items: center
+
+    a
+      font-size: 20px
+      color: #fff
+      text-decoration: none
+      display: flex
+      align-items: center
+
+      img
+        width: 50px
+        height: 50px
+        margin-right: 10px
+
+  .menu
+    display: flex
+    background-color: #fff
+    position: relative
+    border-bottom: 1px solid #e5e5e5
+
+    ul
+      display: flex
+      align-items: center
+      justify-content: center
+      margin: 0 auto
+
+      &:hover
+        li.active
+          border-color: transparent
+
+          &:hover
+            border-color: #337ab7
+
+      li
+        background-color: #fff
+        display: inline-block
+        padding: 0 1.3em
+        line-height: 3
+        font-weight: lighter
+        font-size: 12px
+        white-space: nowrap
+        border-bottom: 5px solid #fff
+        transition: border-color .4s ease
+
+        &:hover, &.active
+          border-color: #337ab7
+
+        a
+          display: block
+          color: #3a3a3a
+          text-decoration: none
+
+        p
+          margin: 0
+          padding: 0
+
+.footer
+  flex: 0
+  background-color: #3a3a3a
+  color: #fff
+  padding: 40px 0 30px
+
+  .footer-content
+    border-top: 1px solid rgba(255,255,255,0.1)
+    padding-top: 15px
+
+    a
+      color: #999
+      text-decoration: underline

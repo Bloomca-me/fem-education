@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="author" content="Seva Zaikov <seva.zaikov@gmail.com>">
+    <link rel="icon" type="image/x-icon" href="<%= static_path(@conn, "/favicons/favicon.ico") %>">
+    <link rel="apple-touch-icon-precomposed" href="<%= static_path(@conn, "/favicons/favicon-152.png") %>">
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-TileImage" href="<%= static_path(@conn, "/favicons/favicon-144.png") %>">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="<%= static_path(@conn, "/favicons/favicon-152.png") %>">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<%= static_path(@conn, "/favicons/favicon-144.png") %>">
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="<%= static_path(@conn, "/favicons/favicon-120.png") %>">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<%= static_path(@conn, "/favicons/favicon-114.png") %>">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<%= static_path(@conn, "/favicons/favicon-72.png") %>">
+    <link rel="apple-touch-icon-precomposed" href="<%= static_path(@conn, "/favicons/favicon-57.png") %>">
+    <link rel="icon" href="<%= static_path(@conn, "/favicons/favicon-32.png") %>" sizes="32x32">
+    <meta property="og:site_name" content="Матчасть феминизма">
+    <meta property="og:image" content="<%= static_path(@conn, "/images/opengraph.png") %>">
+    <%= raw render_meta assigns[:meta] %>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+  </head>
+
+  <body>
+    <div class="container-with-footer">
+      <header class="header">
+        <div class="logo">
+          <a href="/">
+            <img src="<%= static_path(@conn, "/favicons/favicon-152.png") %>" />
+            Матчасть феминизма
+          </a>
+        </div>
+        <nav role="navigation" class="menu">
+          <ul class="">
+            <%= for topic <- get_menu do %>
+              <li class="
+                <%= if check_active(assigns[:rendered_topic], topic) do %>
+                  active
+                <% end %>
+              ">
+                <a href="<%= topic["link"] %>">
+                  <%= raw topic["title"] %>
+                </a>
+              </li>
+            <% end %>
+          </ul>
+        </nav>
+      </header>
+
+      <main role="main" class="main-container content-container">
+        <%= render @view_module, @view_template, assigns %>
+      </main>
+
+      <footer class="footer">
+        <div class="footer-content content-container">
+          ©
+          <script>
+            var date = new Date();
+            var startingDate = 2016;
+            var renderedDate = 2016;
+            try {
+              renderedDate = date.getFullYear();
+            } catch(e) {}
+            var result = startingDate === renderedDate ? renderedDate : startingDate + '–' + renderedDate;
+            document.write(result);
+          </script>.
+          Обо всех неточностях, ошибках, опечатках и прочем пишите на
+          <a href="https://github.com/Bloomca-me/fem-education" target="_blank">GitHub</a>
+          или же мне на
+          <a href="mailto:seva.zaikov@gmail.com">почту</a>,
+          в&nbsp;<a href="https://vk.com/id34200666" target="_blank">контакт</a>
+          или
+          <a href="https://www.facebook.com/profile.php?id=100007384060426" target="_blank">фейсбук</a>.
+        </div>
+      </footer>
+
+    </div> <!-- /container -->
+    <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+  </body>
+</html>

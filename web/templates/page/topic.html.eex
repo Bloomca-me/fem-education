@@ -1,0 +1,16 @@
+<h1>
+  <%= raw @topic["title"] %>
+</h1>
+<%= raw @topic["subtitle"] %>
+<ul class="topic--links">
+  <%= for key <- @links do %>
+    <li class="topic--link-container">
+      <a href="<%= "/#{@topic["__link"]}/#{key["id"]}" %>">
+        <%= raw key["title"] %>
+      </a>
+      <div class="topic--link-subtitle">
+        <%= raw key["subtitle"] %>
+      </div>
+    </li>
+  <% end %>
+</ul>

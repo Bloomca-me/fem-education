@@ -1,0 +1,3 @@
+<div class="article--content">
+  <%= raw @article %>
+</div>
