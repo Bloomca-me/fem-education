@@ -19,6 +19,7 @@
     <meta property="og:site_name" content="Матчасть феминизма">
     <meta property="og:image" content="<%= static_path(@conn, "/images/opengraph.png") %>">
     <%= raw render_meta assigns[:meta] %>
+    <%= raw render_metrics %>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
   </head>
